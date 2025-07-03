@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 
+const router = useRouter();
 const url = ref('');
 const addr = ref('');
 
@@ -12,7 +13,8 @@ const submitResult = async (e) => {
   ).then(response => response.json())
   console.log(result)
   if (result.code === 200) {
-    return
+    alert('提交完成')
+    router.push('/')
   } else {
     // 处理错误
     alert('提交失败');
